@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Solnera</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="brand">
+        <div class="badge">S</div>
+        <h1>Solnera</h1>
+      </div>
+
+      <p>
+        Submit your email address, so you can recieve additional information about our product.
+      </p>
+
+      <form id="emailForm">
+        <input 
+          type="email" 
+          id="email" 
+          placeholder="Email address" 
+          required
+        >
+        <button type="submit">Notify me</button>
+      </form>
+
+      <div class="message" id="message"></div>
+
+      <div class="footer">
+        <span>© Solnera</span>
+        <!--<span>We respect your inbox 🫶</span>-->
+      </div>
+    </div>
+
+    
+
+      <p class="small">
+         <!--Access the dashboard and manage your subscription at <br>
+        <b>http://localhost:3000/index.html</b>-->
+      </p>
+    </div>
+  </div>
+
+<script>
+const form = document.getElementById("emailForm");
+const message = document.getElementById("message");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+
+  message.className = "message";
+  message.textContent = "Sending...";
+
+  try {
+    const response = await fetch("/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+    const text = await response.text();
+    let data;
+    try { data = JSON.parse(text); } 
+    catch { data = { message: text }; }
+
+    if (!response.ok) {
+      message.className = "message is-error";
+      message.textContent = data.message || `HTTP ${response.status}`;
+      return;
+    }
+
+    message.className = "message is-success";
+    message.textContent = data.message || "Subscribed!";
+    form.reset();
+
+  } catch (err) {
+    message.className = "message is-error";
+    message.textContent = "Error: " + err.message;
+    console.error("FETCH ERROR:", err);
+  }
+});
+</script>
+<nav class="navigation">
+   <ul><a href="p2funding.html" class="nav-link">P2 Funding</a></ul>
+</nav>
+</body>
+</html>
