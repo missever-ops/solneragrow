@@ -2,14 +2,14 @@
 * { box-sizing: border-box; }
 
 :root{
-  --bg1: #0b1020;
-  --bg2: #49321c;
+  --bg1: #1c1717;
+  --bg2: #2d2828;
   --card: rgba(94, 94, 94, 0.08);
   --card-border: rgba(255,255,255,0.14);
   --text: rgba(255,255,255,0.92);
   --muted: rgba(255,255,255,0.72);
-  --accent: #D3AF37;
-  --accent2: #d59a23;
+  --accent: #ab8d28;
+  --accent2: #eca61a;
   --danger: #ff4d6d;
   --ok: #e5d62e;
   --shadow: 0 20px 60px rgba(0,0,0,0.45);
@@ -22,9 +22,9 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
   background:
-    radial-gradient(1200px 600px at 20% 20%, rgba(255, 250, 114, 0.871), transparent 55%),
-    radial-gradient(900px 500px at 80% 30%, rgba(35,213,171,0.25), transparent 55%),
-    linear-gradient(160deg, var(--bg1), var(--bg2));
+    radial-gradient(1500px 1600px at 30% 10%, #D3AF37, transparent 20%),
+    radial-gradient(900px 500px at 80% 30%, rgb(43, 26, 22), transparent 55%),
+    linear-gradient(160deg, var(--bg1), var(--bg2));  /* ozadje */
   display: flex;
   place-items: center;
   padding: 24px;
@@ -43,21 +43,17 @@ body{
 .card{
   background: var(--card);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
-  border-radius: 20px;
-  padding: 28px;
-  position: relative;
-  overflow: hidden;
-}
+  border-radius: 16px;
 
-.card:before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background: radial-gradient(500px 200px at 20% 0%, rgba(100, 87, 154, 0.22), transparent 60%),
-              radial-gradient(400px 220px at 80% 20%, rgba(35,213,171,0.18), transparent 60%);
-  pointer-events:none;
+  padding: 20px;
+  width: min(420px, 90%);
+
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .brand{
@@ -65,34 +61,6 @@ body{
   align-items:center;
   gap:10px;
   margin-bottom: 10px;
-}
-
-.badge{
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #D3AF37(122, 193, 96, 0.964), rgba(60, 51, 38, 0.85));
-  box-shadow: 0 10px 25px rgb(255, 255, 154);
-  display:grid;
-  place-items:center;
-  font-weight: 800;
-}
-
-h1{
-  margin: 0;
-  font-size: 40px;
-  letter-spacing: -0.5px;
-    background: linear-gradient(
-    90deg,
-    #b8860b,
-    #ffd700,
-    #fff5cc,
-    #ffd700,
-    #b8860b
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 p{
@@ -121,9 +89,9 @@ p{
 
 /* --- Form --- */
 form{
-  margin-top: 18px;
+  margin-top: 8px;
   display:flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 @media (max-width: 520px){
@@ -132,13 +100,14 @@ form{
 
 input[type="email"]{
   flex: 1;
-  padding: 14px 14px;
-  border-radius: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.16);
   background: rgba(0,0,0,0.18);
   color: var(--text);
   outline: none;
   transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  font: inherit;
 }
 
 input[type="email"]::placeholder{
@@ -152,11 +121,14 @@ input[type="email"]:focus{
 }
 
 button{
-  padding: 14px 16px;
-  border-radius: 14px;
+  padding: 8px 14px;
+  border-radius: 10px;
   border: 0;
   cursor: pointer;
-  font-weight: 700;
+  font: inherit;
+  font-size: 14px;
+  font-size-adjust: 0.45;
+  font-weight: 600;
   color: #0b1020;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   box-shadow: 0 14px 30px rgba(35,213,171,0.18);
@@ -208,22 +180,323 @@ button:active{
   font-size: 12px;
 }
 
-.navigation {
-  position: fixed;
-  bottom: 20px;
-  right: 50px;
+.logo img {
+  height: 60px;   /* adjust size */
+  width: auto;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
-.navigation a {
- background: linear-gradient(
-    90deg,
-    #b8860b,
-    #ffd700,
-    #fff5cc,
-    #ffd700,
-    #b8860b
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ===== TOP NAVIGATION ===== */
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.85); /* dark background */
+  backdrop-filter: blur(10px);
+
+  z-index: 1000;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* Navigation Links */
+.top-nav a {
+  margin-left: 40px;
+  text-decoration: none;
+  font-family: inherit;       /* uses same font as page */
+  font-size: 16px;
+  font-weight: 500;
+  color: #D3AF37;             /* uses your existing text color */
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+.top-nav a:hover {
+  color: #ffffff;             /* lighter color on hover */
+}
+
+.hero {
+  text-align: center;
+  max-width: 900px;
+  margin: -200px auto 0 auto;  /* space below top nav */
+  padding: 0 20px;
+}
+
+.main-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color:#f4d05b;
+}
+
+.main-text {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ===== 2-column page layout ===== */
+.page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 60px 60px; /* top padding leaves space for fixed top nav */
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* left bigger, right reserved for image */
+  gap: 60px;
+  align-items: start;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  gap: 26px; /* space between hero and card */
+  max-width: 560px;
+}
+
+.right{
+  min-height: 520px;              /* space for picture */
+  border-radius: 20px;
+  background: rgba(0,0,0,0.12);   /* placeholder “image area” */
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* If you put an actual image inside .right */
+.hero-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* ===== Hero styling (left) ===== */
+.hero-title{
+  margin: 0 0 12px 0;
+  font-size: 54px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.hero-text{
+  margin: 0;
+  max-width: 52ch;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+/* ===== Card: make it normal flow, compact, not fixed ===== */
+.card{
+  position: static;       /* IMPORTANT: stops fixed floating */
+  width: 100%;
+  right: auto;
+  bottom: auto;
+  transform: none;
+
+  border-radius: 16px;
+  padding: 18px 18px;
+}
+
+/* Make the subscribe row more horizontal/compact */
+.card form{
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.card input[type="email"]{
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font: inherit;
+}
+
+.card button{
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+/* ===== Mobile responsive ===== */
+@media (max-width: 900px){
+  .page{
+    grid-template-columns: 1fr;
+    padding: 120px 20px 40px;
+  }
+  .left{ max-width: 100%; }
+  .right{ min-height: 260px; }
+}
+
+/* =========================
+   2-COLUMN LAYOUT FIX
+   Put this at the VERY END of styles.css
+   ========================= */
+
+/* Stop the old centering layout from breaking the page */
+body{
+  display: block !important;     /* overrides your old display:flex */
+  place-items: unset !important;
+  padding: 0 !important;
+}
+
+/* Main grid: left content + right image space */
+.page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 60px 60px; /* space for fixed top nav */
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Left column: hero above card */
+.left{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 620px;
+}
+
+/* Right column: reserved space for image */
+.right{
+  min-height: 520px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.12); /* placeholder */
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+/* If you add an actual image inside .right */
+.right img,
+.hero-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hero text styles */
+.hero{
+  text-align: left;
+}
+
+.hero-title{
+  margin: 0 0 12px 0;
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff36a;
+}
+
+.hero-text{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 16px;
+  max-width: 60ch;
+}
+
+/* Make your card part of the left column (NOT fixed) */
+.card{
+  position: static !important;   /* overrides old fixed positioning */
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+
+  width: 100%;
+  max-width: 620px;
+}
+
+/* Make the form compact and horizontal */
+.card form{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.card input[type="email"]{
+  flex: 1;
+  font: inherit;                 /* fixes your broken "font:" line */
+}
+
+/* Mobile responsive: stack columns */
+@media (max-width: 900px){
+  .page{
+    grid-template-columns: 1fr;
+    padding: 110px 20px 40px;
+    gap: 24px;
+  }
+  .left{ max-width: 100%; }
+  .right{ min-height: 260px; }
+}
+
+/* ===== Layout overrides for 2-column page ===== */
+
+/* Stop the old body centering from breaking the grid */
+body{
+  display: block;
+  padding: 0;
+}
+
+/* The card must NOT be fixed if it should sit under the hero */
+.card{
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  transform: none;
+  width: 100%;
+  max-width: 560px; /* matches your .left max-width */
+}
+/* === FIX HERO VISIBILITY (override old negative margin) === */
+.hero{
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  text-align: left !important;
+}
+
+/* Remove the visible placeholder box on the right */
+.right{
+  background: transparent !important;
+  border: none !important;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Make sure P2 Funding button is visible in the left column */
+/* ===== P2 Funding button (single source of truth) ===== */
+.navigation{
+  position: absolute;
+  bottom: 50px;
+  right: 47px;
+  margin-top: 15px;
+}
+
+.navigation .nav-link{
+  display: inline-block;
+  color: #D3AF37;
+  text-decoration: none;
 }

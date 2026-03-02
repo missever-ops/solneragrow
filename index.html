@@ -8,40 +8,57 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="card">
-      <div class="brand">
-        <div class="badge">S</div>
-        <h1>Solnera</h1>
-      </div>
+  <header class="top-nav">
+    <div class="logo">
+      <img src="logo1.png.png" alt="Solnera Grow">
+    </div>
 
-      <p>
-        Submit your email address, so you can recieve additional information about our product.
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+<!-- glavni naslov+besedilo -->
+ <main class="page">
+  <section class="left">
+    <section class="hero">
+      <h1 class="hero-title">Solnera One</h1>
+      <p class="hero-text">
+        Solnera One is an innovative aeroponic system with adaptive LED technology
+        that optimizes plant growth while reducing energy consumption.
       </p>
+    </section>
+
+    <section class="card">
+      <p class="kicker">Get updates</p>
+      <p class="small">Leave your email for additional information.</p>
 
       <form id="emailForm">
-        <input 
-          type="email" 
-          id="email" 
-          placeholder="Email address" 
-          required
-        >
-        <button type="submit">Notify me</button>
+        <input id="email" type="email" placeholder="Email address" required />
+        <button type="submit">SUBSCRIBE</button>
       </form>
 
       <div class="message" id="message"></div>
 
       <div class="footer">
         <span>© Solnera</span>
-        <!--<span>We respect your inbox 🫶</span>-->
       </div>
-    </div>
+    </section>
 
     
 
+  <section class="right">
+    <!-- Space for image -->
+    <!-- <img class="hero-image" src="images/yourphoto.png" alt="Product photo"> -->
+
+  </section>
+</main>
+
       <p class="small">
          <!--Access the dashboard and manage your subscription at <br>
-        <b>http://localhost:3000/index.html</b>-->
+        <b>http://www.solneragrow.com/</b>-->
       </p>
     </div>
   </div>
@@ -87,8 +104,13 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
-<nav class="navigation">
-   <ul><a href="p2funding.html" class="nav-link">P2 Funding</a></ul>
-</nav>
+
+  <section class="navigation">
+  <a href="p2funding.html" class="nav-link">
+    P2 Funding
+  </a>
+</section>
+
+
 </body>
 </html>
