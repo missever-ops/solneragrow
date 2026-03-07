@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- TOP NAV -->
   <header class="top-nav">
     <div class="logo">
       <a href="index.html">
@@ -21,40 +22,59 @@
     </nav>
   </header>
 
+  <!-- MAIN PAGE -->
   <main class="page">
     <section class="left">
+
+      <!-- HERO -->
       <section class="hero">
-        <h1 class="hero-title">Solnera One</h1>
+        <h1 class="hero-title">Solnera One - Illuminate Your Growth Potential</h1>
         <p class="hero-text">
-          Solnera One is an innovative aeroponic system with adaptive LED technology
-          that optimizes plant growth while reducing energy consumption.
+          Solnera One is a smart aeroponic device with innovative LED system that optimizes plant
+growth while reducing energy consumption.
         </p>
+        <p>Its core is adaptive LED technology, which, with advanced sensors and AI, automatically adjusts
+growing conditions to each plant’s stage of growth. This optimizes growth, improves quality, and
+reduces electricity use.</p>
+        <p>Designed for urban residents seeking fresh, home-grown food despite limited space, time, or
+knowledge, Solnera One makes indoor gardening easy and sustainable. Featuring a sleek,
+modern design, it integrates technology, sustainability, and style, while its app allows switching
+between growth and ambient lighting modes to enhance usability in living spaces.</p>
+        <p>Solnera demonstrates that technological innovation can align with environmental responsibility,
+offering a practical solution for urban self-sufficiency that respects space, nature, and users.</p>
       </section>
 
+      <!-- EMAIL CARD -->
       <section class="card">
         <p class="kicker">Get updates</p>
         <p class="small">Leave your email for additional information.</p>
 
-        <form name="subscribe" method="POST" data-netlify="true" netlify action="/thank-you.html">
-  <input type="hidden" name="form-name" value="subscribe" />
-  <input type="email" name="email" placeholder="Email address" required />
-  <button type="submit">SUBSCRIBE</button>
-</form>
+        <!-- NETLIFY FORM -->
+        <form 
+          name="subscribe" 
+          method="POST" 
+          data-netlify="true"
+          action="/thank-you.html"
+        >
+          <input type="hidden" name="form-name" value="subscribe" />
+          <input type="email" name="email" placeholder="Email address" required />
+          <button type="submit">SUBSCRIBE</button>
+        </form>
 
         <div class="footer">
           <span>© Solnera</span>
         </div>
       </section>
+
     </section>
 
     <section class="right">
-      <!-- Space for image -->
-      <!-- <img class="hero-image" src="images/yourphoto.png" alt="Product photo"> -->
+      <!-- optional image here -->
     </section>
   </main>
 
-  <!-- Hidden Netlify form for detection -->
-  <form name="subscribe" netlify hidden>
+  <!-- Hidden form for Netlify detection -->
+  <form name="subscribe" hidden>
     <input type="email" name="email" />
   </form>
 
