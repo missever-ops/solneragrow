@@ -35,7 +35,7 @@
       <p class="kicker">Get updates</p>
       <p class="small">Leave your email for additional information.</p>
 
-      <form name="subscribe" method="POST" data-netlify="true">
+      <form name="subscribe" method="POST" data-netlify="true" action="/thank-you.html">
   <input type="hidden" name="form-name" value="subscribe" />
 
   <input type="email" name="email" placeholder="Email address" required />
@@ -69,6 +69,10 @@
   <input type="hidden" name="form-name" value="subscribe" />
   <input type="email" name="email" placeholder="Email address" required />
   <button type="submit">SUBSCRIBE</button>
+</form>
+
+<form name="subscribe" netlify hidden>
+  <input type="email" name="email" />
 </form>
 
   <!--<section class="navigation">
