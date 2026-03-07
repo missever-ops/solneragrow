@@ -35,10 +35,12 @@
       <p class="kicker">Get updates</p>
       <p class="small">Leave your email for additional information.</p>
 
-      <form id="emailForm">
-        <input id="email" type="email" placeholder="Email address" required />
-        <button type="submit">SUBSCRIBE</button>
-      </form>
+      <form name="subscribe" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="subscribe" />
+
+  <input type="email" name="email" placeholder="Email address" required />
+  <button type="submit">SUBSCRIBE</button>
+</form>
 
       <div class="message" id="message"></div>
 
@@ -63,47 +65,11 @@
     </div>
   </div>
 
-<script>
-const form = document.getElementById("emailForm");
-const message = document.getElementById("message");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-
-  message.className = "message";
-  message.textContent = "Sending...";
-
-  try {
-    const response = await fetch("/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email })
-    });
-
-    const text = await response.text();
-    let data;
-    try { data = JSON.parse(text); } 
-    catch { data = { message: text }; }
-
-    if (!response.ok) {
-      message.className = "message is-error";
-      message.textContent = data.message || `HTTP ${response.status}`;
-      return;
-    }
-
-    message.className = "message is-success";
-    message.textContent = data.message || "Subscribed!";
-    form.reset();
-
-  } catch (err) {
-    message.className = "message is-error";
-    message.textContent = "Error: " + err.message;
-    console.error("FETCH ERROR:", err);
-  }
-});
-</script>
+<form name="subscribe" method="POST" data-netlify="true" action="/thank-you.html">
+  <input type="hidden" name="form-name" value="subscribe" />
+  <input type="email" name="email" placeholder="Email address" required />
+  <button type="submit">SUBSCRIBE</button>
+</form>
 
   <!--<section class="navigation">
   <a href="p2funding.html" class="nav-link">
