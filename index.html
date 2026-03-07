@@ -10,77 +10,53 @@
 
   <header class="top-nav">
     <div class="logo">
-      <img src="logo2.png.png" alt="Solnera Grow">
+      <a href="index.html">
+        <img src="logo2.png.png" alt="Solnera Grow">
+      </a>
     </div>
 
     <nav>
-      <a href="about.html"><!--About--></a>
       <a href="index.html">Home</a>
       <a href="p2funding.html">P2 Funding</a>
     </nav>
   </header>
 
-<!-- glavni naslov+besedilo -->
- <main class="page">
-  <section class="left">
-    <section class="hero">
-      <h1 class="hero-title">Solnera One</h1>
-      <p class="hero-text">
-        Solnera One is an innovative aeroponic system with adaptive LED technology
-        that optimizes plant growth while reducing energy consumption.
-      </p>
+  <main class="page">
+    <section class="left">
+      <section class="hero">
+        <h1 class="hero-title">Solnera One</h1>
+        <p class="hero-text">
+          Solnera One is an innovative aeroponic system with adaptive LED technology
+          that optimizes plant growth while reducing energy consumption.
+        </p>
+      </section>
+
+      <section class="card">
+        <p class="kicker">Get updates</p>
+        <p class="small">Leave your email for additional information.</p>
+
+        <form name="subscribe" method="POST" data-netlify="true" action="/thank-you.html">
+          <input type="hidden" name="form-name" value="subscribe" />
+          <input type="email" name="email" placeholder="Email address" required />
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+
+        <div class="footer">
+          <span>© Solnera</span>
+        </div>
+      </section>
     </section>
 
-    <section class="card">
-      <p class="kicker">Get updates</p>
-      <p class="small">Leave your email for additional information.</p>
-
-      <form name="subscribe" method="POST" data-netlify="true" action="/thank-you.html">
-  <input type="hidden" name="form-name" value="subscribe" />
-
-  <input type="email" name="email" placeholder="Email address" required />
-  <button type="submit">SUBSCRIBE</button>
-</form>
-
-      <div class="message" id="message"></div>
-
-      <div class="footer">
-        <span>© Solnera</span>
-      </div>
+    <section class="right">
+      <!-- Space for image -->
+      <!-- <img class="hero-image" src="images/yourphoto.png" alt="Product photo"> -->
     </section>
+  </main>
 
-    
-
-  <section class="right">
-    <!-- Space for image -->
-    <!-- <img class="hero-image" src="images/yourphoto.png" alt="Product photo"> -->
-
-  </section>
-</main>
-
-      <p class="small">
-         <!--Access the dashboard and manage your subscription at <br>
-        <b>http://www.solneragrow.com/</b>-->
-      </p>
-    </div>
-  </div>
-
-<form name="subscribe" method="POST" data-netlify="true" action="/thank-you.html">
-  <input type="hidden" name="form-name" value="subscribe" />
-  <input type="email" name="email" placeholder="Email address" required />
-  <button type="submit">SUBSCRIBE</button>
-</form>
-
-<form name="subscribe" netlify hidden>
-  <input type="email" name="email" />
-</form>
-
-  <!--<section class="navigation">
-  <a href="p2funding.html" class="nav-link">
-    P2 Funding
-  </a>
-</section>-->
-
+  <!-- Hidden Netlify form for detection -->
+  <form name="subscribe" netlify hidden>
+    <input type="email" name="email" />
+  </form>
 
 </body>
 </html>
