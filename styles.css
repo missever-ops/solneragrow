@@ -58,6 +58,7 @@ body{
   height: 50px;
   width: auto;
   display: block;
+  align-items: center;
 }
 
 /* Navigation Links */
@@ -418,6 +419,8 @@ button:active{
   height: 40px;
 }
 
-
-  
+.p1-img{
+  width: 20%;
+  height: 20%;
+} 
 }
