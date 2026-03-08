@@ -347,6 +347,11 @@ button:active{
   background: rgba(0, 0, 0, 0);
 }
 
+.p1-img{
+  width: 20% !important;
+  height: 20% !important;
+} 
+
 /* Text card */
 .p2-content{
   max-width: 900px;
@@ -419,8 +424,5 @@ button:active{
   height: 40px;
 }
 
-.p1-img{
-  width: 80px !important;
-  height: 40px !important;
-} 
+
 }
